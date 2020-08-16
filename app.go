@@ -79,7 +79,7 @@ func (app *KVStoreApplication) isValid(tx []byte) (code uint32) {
 
 func (app *KVStoreApplication) CheckTx(req abcitypes.RequestCheckTx) abcitypes.ResponseCheckTx {
 	code := app.isValid(req.Tx)
-	return abcitypes.ResponseCheckTx{Code: code, GasWanted: 1}
+	return abcitypes.ResponseCheckTx{Code: code, GasWanted: 1, Info: "Saved!"}
 }
 
 func (app *KVStoreApplication) Commit() abcitypes.ResponseCommit {
