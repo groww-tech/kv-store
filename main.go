@@ -6,6 +6,7 @@ import (
 	"os"
 	"os/signal"
 	"path/filepath"
+	"runtime"
 	"syscall"
 
 	"github.com/dgraph-io/badger"
@@ -28,7 +29,12 @@ func init() {
 }
 
 func main() {
-	db, err := badger.Open(badger.DefaultOptions("./data/badger"))
+	bdOptions := badger.DefaultOptions("./data/badger")
+	if runtime.GOOS == "windows" {
+		bdOptions = bdOptions.WithTruncate(true)
+	}
+
+	db, err := badger.Open(bdOptions)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "failed to open badger db: %v", err)
 		os.Exit(1)
