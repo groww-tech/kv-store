@@ -28,7 +28,7 @@ func init() {
 }
 
 func main() {
-	db, err := badger.Open(badger.DefaultOptions("./badger"))
+	db, err := badger.Open(badger.DefaultOptions("./data/badger"))
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "failed to open badger db: %v", err)
 		os.Exit(1)
