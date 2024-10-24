@@ -1,4 +1,4 @@
-module github.com/giansalex/kvstore
+module github.com/groww-tech/kvstore
 
 go 1.14
 

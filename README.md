@@ -16,6 +16,6 @@ tenermint init
 
 Open new console tab.
 ```bash
-curl -s 'localhost:26657/broadcast_tx_commit?tx="author=giansalex"'
+curl -s 'localhost:26657/broadcast_tx_commit?tx="author=groww-tech"'
 curl -s 'localhost:26657/abci_query?data="author"'
 ```
